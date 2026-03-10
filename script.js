@@ -93,3 +93,25 @@ document.addEventListener('keydown', function(e) {
         modal.style.display = 'none';
     }
 });
+
+// Initialize EmailJS
+emailjs.init("xVS6CmaeKL3jQk-bN");
+
+document.getElementById("contact-form")
+.addEventListener("submit", function(event) {
+
+event.preventDefault();
+
+emailjs.sendForm(
+    "service_803xh8a",
+    "template_d7m2rsh",
+    this
+)
+.then(function() {
+    alert("Message sent successfully!");
+}, function(error) {
+    alert("Failed to send message.");
+    console.log(error);
+});
+
+});
